@@ -1,17 +1,139 @@
-<!Doctype html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>Double Advertise</title>
+  <meta name="description" content="Double Advertise Free link traffic exchange company, start now without settings and registration"/>
+  <meta name="keywords" content="double advertise, autosurf, websurf, traffic exchnage, link exchnage, seo, increase alexa rank">
+  <link rel="stylesheet" type="text/css" href="boards.css" />
+  <link rel="shortcut icon" href="https://www.doubleadvertise.com/favicon.ico" />
+  
+  <script type="text/javascript" > 
+  function replaceText(el, text) {
+  if (el != null) {
+    clearText(el);
+    var newNode = document.createTextNode(text);
+    el.appendChild(newNode);
+  }
+}
 
-<script type="text/javascript">
-{
-window.location = "http://mysite.com/mypage.html"
+function clearText(el) {
+  if (el != null) {
+    if (el.childNodes) {
+      for (var i = 0; i < el.childNodes.length; i++) {
+        var childNode = el.childNodes[i];
+        el.removeChild(childNode);
+      }
+    }
+  }
+}
+
+function getText(el) {
+  var text = "";
+  if (el != null) {
+    if (el.childNodes) {
+      for (var i = 0; i < el.childNodes.length; i++) {
+        var childNode = el.childNodes[i];
+        if (childNode.nodeValue != null) {
+          text = text + childNode.nodeValue;
+        }
+      }
+    }
+  }
+  return text;
+}
+
+function ChangeParentDocumentO(url) {
+window.opener.location.replace(url);
+}
+
+function openRequested0() {
+var ww = document.getElementById("aaa").value;
+var vr = document.getElementById("timee").value;
+var it = document.getElementById("idd").value;
+var vay =  "traf.php?w=" + ww + "&v=" + vr + "&i=" + it;
+var ce = window.opener;
+ce.location.replace(vay);
+}
+
+function openRequested() {
+function vanyo() { if(!ce || ce.closed) { clearInterval(timer); document.location.assign('/'); } };
+var timer = setInterval(vanyo, 500);
+var vr = document.getElementById("timee").value;
+var it = document.getElementById("idd").value;
+var vay =  "traf.php?v=" + vr + "&i=" + it;
+var ce = window.opener;
+ce.location.replace(vay);
 }
 
 
-</script>
+var request = null;
 
-   </head>
+   function createRequest() {
+     try {
+       request = new XMLHttpRequest();
+     } catch (trymicrosoft) {
+       try {
+         request = new ActiveXObject("Msxml2.XMLHTTP");
+       } catch (othermicrosoft) {
+         try {
+           request = new ActiveXObject("Microsoft.XMLHTTP");
+         } catch (failed) {
+           request = null;
+         }
+       }
+     }
 
+     if (request == null)
+       alert("Error creating request object!");
+   }
+
+   function getBoardsSold() {
+	 var af = document.referrer;
+	 var tm = document.getElementById("timee").value;
+	 var iid = document.getElementById("idd").value;
+     createRequest();
+     var url = "get_majax.php";
+     request.open("POST", url, true);
+     request.onreadystatechange = updatePage;
+     request.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+  request.send("tm=" + tm + "&iid=" + iid);
+  }
+  
+  function updatePage() {
+    if (request.readyState == 4) {
+      var newTotal = request.responseText;
+	  document.getElementById("cel").innerHTML = newTotal;	  
+	  document.getElementById("timee").value = document.getElementById("vree").value;
+	  document.getElementById("idd").value = document.getElementById("idee").value;
+    }
+  }
+
+  </script>
+
+</head>
+
+<body>
+<center>
+<IMG SRC='blop.gif'>
+
+<center>
+<div style='width: 450px; font-size: 13px;line-height: 1.5;'>
+<br>
+Visit the website of another user automatically and then they will visit your website. 
+No sign-up! Start Now! Without settings.<br>Free auto surf traffic link exchange.<br>
+Just click the button below.
+<br>
+</div>
+<form action='/' name='userForm' method='POST' target='_blank' enctype='application/x-www-form-urlencoded' accept-charset='utf-8' >
+<div class='rectangle'><br>Your url here:</div><br>
+<input name='newweb' type='text' id='newweb' value=''  class='required' size='40'/><br>&nbsp;<br> 
+<button class='button' type='submit' >START</button>
+</form>
+</center>
+
+</center>
+</body>
 </html>
 
  
