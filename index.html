@@ -1,605 +1,724 @@
 
-<!DOCTYPE html>
-<html>
+    <!DOCTYPE html>
+<html class="h-100">
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content=" Willkommen auf Coinsurfer.eu, hier kannst du durch die Nutzung unserer Surfbar (passiv) Bitcoins (BTC) verdienen welche du dir ab einem Betrag von 0.001 BTC auszahlen lassen kannst. ">
-        <link rel="shortcut icon" type="image/x-icon" href="/build/img/magenta.ico">
-        <title>Dashboard | Coinsurfer.eu</title>
-        <meta name="coinzilla" content="b843df7a5017e4b575d477c1afadf75d" />
-        <link rel="stylesheet" href="/build/tailwind.d30caec0.css">
-        
-    <style>
-        .toggle-checkbox:checked {
-            @apply: right-0 border-green-400;
-            right: 0;
-            border-color: #3182ce;
-        }
-        .toggle-checkbox:checked + .toggle-label {
-            @apply: bg-green-400;
-            background-color: #3182ce;
-        }
-    </style>
-        <style>
-            .footer {
-                position: fixed;
-                left: 0;
-                bottom: 0;
-                width: 100%;
-                background-color: white;
-                color: black;
-                text-align: center;
-            }
-        </style>
-    </head>
-    <body class="">
-    
-    <coingecko-coin-price-marquee-widget  coin-ids="bitcoin,ethereum,ripple,monero,dogecoin" currency="usd" background-color="#ffffff" locale="de"></coingecko-coin-price-marquee-widget>
-                <div class="relative antialiased bg-green-100 dark-mode:bg-gray-900">
-            <div class="py-2 w-full text-gray-700 bg-pink-700 dark-mode:text-gray-200 dark-mode:bg-gray-800">
-                <div x-data="{ open: true }" class="container flex flex-col max-w-screen-xxl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
-                    <div class="flex flex-row items-center justify-between p-4">
-                        <img style="max-height: 100%" class="h-14 md:mr-4" src="/build/img/logo_white_transparent.png">
-                        <a href="/" class="text-lg font-semibold tracking-widest text-white uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline">Coinsurfer</a>
-                        <button class="rounded-lg md:hidden focus:outline-none focus:shadow-outline" @click="open = !open">
-                            <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
-                                <path x-show="!open" fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clip-rule="evenodd"></path>
-                                <path x-show="open" fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-                            </svg>
+                <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+                <title>WebHit | Viewer</title>
+                    <link rel="stylesheet" href="/build/app.aba90721.css" integrity="sha384-UZLliaN4z7PMFb2SjObyxmJwqfWD/SDp1hIimaE8W5FGn0RFkHwY1mwAl0LPBPP5">
+            </head>
+    <body class="d-flex flex-column h-100">
+                                <header>
+                <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark d-block d-lg-none">
+                    <div class="container">
+                        <a class="navbar-brand" href="/">WebHit</a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
                         </button>
-                    </div>
-                    <a href="https://www.reddit.com/r/coinsurfer/" class="h-max hover:text-blue-200 text-white text-center underline mx-auto">Simple-Crypto ist  Coinsurfer - Klicke hier für alle Informationen</a>
+                        <div class="collapse navbar-collapse" id="navbarCollapse">
+                            <ul class="navbar-nav mr-auto">
+                                <li class="nav-item">
+                                            <a class="nav-link active" href="/account/viewer" target="_blank">
+                                                <i class="d-md-inline fas fa-coins"></i>&nbsp;
+                                                Surfing
+                                            </a>
+                                        </li>
+                                    <li class="nav-item ">
+        <a class="nav-link " href="/account/profile" target="_blank">
+            <i class="d-md-inline fas fa-user-circle"></i>
+            Account
+        </a>
+    </li>
+    <li class="nav-item ">
+        <a class="nav-link " href="/account/sites" target="_blank">
+            <i class="d-md-inline fas fa-sitemap"></i>
+            Sites
+        </a>
+    </li>
 
-                    <nav :class="{'flex': open, 'hidden': !open}" class="z-50 flex-col flex-grow hidden pb-4 md:pb-0 md:flex md:justify-end md:flex-row">
-                        <a href="/" class="px-4 py-2 mt-2 text-sm text-white font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">Startseite</a>
-                        <a href="/faq"class="px-4 py-2 mt-2 text-sm text-white font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">FAQ</a>
-                        <a href="/altcoin"class="px-4 py-2 mt-2 text-sm text-white font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">Altcoins</a>
+    
+    <li class="nav-item ">
+        <a class="nav-link " href="/account/referrals" target="_blank">
+            <i class="d-md-inline fas fa-users"></i>
+            Referrals
+        </a>
+    </li>
+    <li class="nav-item ">
+        <a class="nav-link" href="/account/transfer" target="_blank">
+            <i class="d-md-inline fas fa-money-bill-wave"></i>
+            Transfer
+        </a>
+    </li>
 
-                                                                        <div @click="open = !open " class="z-5 relative" x-data="{ open: false }">
-                            <button @click.away="open = false" class="flex flex-row text-gray-900 bg-gray-200 items-center w-full px-4 py-2 mt-2 text-sm font-semibold text-left bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:focus:bg-gray-600 dark-mode:hover:bg-gray-600 md:w-auto md:inline md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
-                                <span>Account</span>
-                                <svg fill="currentColor" viewBox="0 0 20 20" :class="{'rotate-180': open, 'rotate-0': !open}" class="inline w-4 h-4 mt-1 ml-1 transition-transform duration-200 transform md:-mt-1"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-                            </button>
-                            <div x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="absolute right-0 w-full md:max-w-screen-sm md:w-screen mt-2 origin-top-right">
-                                <div class="px-2 pt-2 pb-4 bg-white rounded-md shadow-lg dark-mode:bg-gray-700">
-                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                        <a href="/user/dashboard" class="flex flex row items-start rounded-lg bg-transparent p-2 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
-                                            <div class="bg-teal-500 text-white rounded-lg p-3">
-                                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="md:h-6 md:w-6 h-4 w-4"><path d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
-                                            </div>
-                                            <div class="ml-3">
-                                                <p class="font-semibold">Dashboard</p>
-                                                <p class="text-sm">Account Überblick</p>
-                                            </div>
-                                        </a>
 
-                                        <a href="/user/chat" class="flex flex row items-start rounded-lg bg-transparent p-2 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
-                                            <div class="bg-teal-500 text-white rounded-lg p-3">
-                                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="md:h-6 md:w-6 h-4 w-4"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
-                                            </div>
-                                            <div class="ml-3">
-                                                <p class="font-semibold">Chat</p>
-                                                <p class="text-sm">Tausche dich aus</p>
-                                            </div>
-                                        </a>
-                                        <a href="/user/auszahlung" class="flex flex row items-start rounded-lg bg-transparent p-2 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
-                                            <div class="bg-teal-500 text-white rounded-lg p-3">
-                                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="md:h-6 md:w-6 h-4 w-4"><path d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
-                                            </div>
-                                            <div class="ml-3">
-                                                <p class="font-semibold">Auszahlung</p>
-                                                <p class="text-sm">Zahle dein Guthaben aus</p>
-                                            </div>
-                                        </a>
-                                        <a href="/user/bonus" class="flex flex row items-start rounded-lg bg-transparent p-2 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
-                                            <div class="bg-teal-500 text-white rounded-lg p-3">
-                                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="md:h-6 md:w-6 h-4 w-4"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg>
-                                            </div>
-                                            <div class="ml-3">
-                                                <p class="font-semibold">Bonus</p>
-                                                <p class="text-sm">Verdiene weitere BTC</p>
-                                            </div>
-                                        </a>
-
-                                        <a href="/user/ref" class="flex flex row items-start rounded-lg bg-transparent p-2 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
-                                            <div class="bg-teal-500 text-white rounded-lg p-3">
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="md:h-6 md:w-6 h-4 w-4">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 15v-1a4 4 0 00-4-4H8m0 0l3 3m-3-3l3-3m9 14V5a2 2 0 00-2-2H6a2 2 0 00-2 2v16l4-2 4 2 4-2 4 2z" />
-                                                </svg>                                            </div>
-                                            <div class="ml-3">
-                                                <p class="font-semibold">Kunden werben Kunden</p>
-                                                <p class="text-sm">Kunden-werben-Kunden Bereich</p>
-                                            </div>
-                                        </a>
-                                        <a href="/logout" class="flex flex row items-start rounded-lg bg-transparent p-2 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
-                                            <div class="bg-teal-500 text-white rounded-lg p-3">
-                                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="md:h-6 md:w-6 h-4 w-4">
-                                                    <path d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
-                                                </svg>
-                                            </div>
-                                            <div class="ml-3">
-                                                <p class="font-semibold">Logout</p>
-                                                <p class="text-sm">Bis zum nächsten mal</p>
-                                            </div>
-                                        </a>
-
-                                                                            </div>
-                                </div>
-                            </div>
+                                                                    <li class="nav-item navbar-text">
+                                        Logged in as peter007
+                                    </li>
+                                    <li class="nav-item navbar-text">
+                                        Balance: <span data-container="user-balance">2.40</span>
+                                    </li>
+                                    <li class="nav-item navbar-text">
+                                        <a href="https://www.advertisecoin.com/" target="_blank">@</a>
+                                        <span data-container="user-balance-advertise-coin">0.000000</span>
+                                    </li>
+                                                            </ul>
                         </div>
-                                            </nav>
-                </div>
-            </div>
-        </div>
+                    </div>
+                </nav>
+                <nav class="navbar navbar-expand-lg navbar-light fixed-top d-none d-lg-block px-0 shadow-sm" style="background-color: #f5f5f0;">
+                    <div class="container d-block">
+                        <div class="row">
+                            <div class="col-12 col-md-3 col-xl-2">
+                                <a class="navbar-brand" href="/" style="font-size: 1.2rem;">WebHit</a>
+                                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                                    <span class="navbar-toggler-icon"></span>
+                                </button>
+                            </div>
+                            <div class="col-12 col-md-6 col-xl-8">
+                                <ul class="navbar-nav px-0 justify-content-between" style="margin-left: -15px; margin-right: -15px; font-size: 0.9rem;">
+                                        <li class="nav-item ">
+        <a class="nav-link " href="/account/profile" target="_blank">
+            <i class="d-md-inline fas fa-user-circle"></i>
+            Account
+        </a>
+    </li>
+    <li class="nav-item ">
+        <a class="nav-link " href="/account/sites" target="_blank">
+            <i class="d-md-inline fas fa-sitemap"></i>
+            Sites
+        </a>
+    </li>
 
-        <div class="container mx-auto">
-                    </div>
-    <div class="flex-grow container mx-auto sm:px-4 pt-6 pb-8">
-    <div class="bg-white border-t border-b sm:border-l sm:border-r sm:rounded shadow mb-6">
-        <div class="border-b px-6">
-            <div class="flex justify-between -mb-px">
-                <div class="flex">
-                    <span class="appearance-none py-4 text-blue-dark border-b border-blue-dark mr-6">
-                        Übersicht
-                    </span>
-                    <!--
-                    <button type="button" class="appearance-none py-4 text-gray-600 border-b border-transparent hover:border-grey-dark mr-6">
-                        Ethereum &middot; € 884.80
-                    </button>
-                    <button type="button" class="appearance-none py-4 text-gray-600 border-b border-transparent hover:border-grey-dark">
-                        Litecoin &middot; € 358.24
-                    </button>
-                    -->
-                </div>
-                <!--
-                <div class="flex text-sm">
-                    <button type="button" class="appearance-none py-4 text-gray-600 border-b border-transparent hover:border-grey-dark mr-3">
-                        1M
-                    </button>
-                    <button type="button" class="appearance-none py-4 text-gray-600 border-b border-transparent hover:border-grey-dark mr-3">
-                        1D
-                    </button>
-                    <button type="button" class="appearance-none py-4 text-gray-600 border-b border-transparent hover:border-grey-dark mr-3">
-                        1W
-                    </button>
-                    <button type="button" class="appearance-none py-4 text-blue-dark border-b border-blue-dark mr-3">
-                        1M
-                    </button>
-                    <button type="button" class="appearance-none py-4 text-gray-600 border-b border-transparent hover:border-grey-dark mr-3">
-                        1Y
-                    </button>
-                    <button type="button" class="appearance-none py-4 text-gray-600 border-b border-transparent hover:border-grey-dark">
-                        ALL
-                    </button>
-                </div>
-                -->
-            </div>
-        </div>
-        <div class="flex">
-            <div class="w-1/3 text-center py-8">
-                <div class="border-r">
-                    <div class="text-gray-600er mb-2">
-                        <span class="text-3xl align-top"></span>
-                        <span id="pending" class="py-4 text-5xl">
-                            0
-                        </span>
+            <li class="nav-item"><a class="nav-link active" href="/account/viewer" target="_blank" style="font-size: 1.4rem;">
+                    <i class="d-md-inline fas fa-coins"></i>&nbsp;
+                    Surfing
+                </a></li>
+    
+    <li class="nav-item ">
+        <a class="nav-link " href="/account/referrals" target="_blank">
+            <i class="d-md-inline fas fa-users"></i>
+            Referrals
+        </a>
+    </li>
+    <li class="nav-item ">
+        <a class="nav-link" href="/account/transfer" target="_blank">
+            <i class="d-md-inline fas fa-money-bill-wave"></i>
+            Transfer
+        </a>
+    </li>
 
-                        <span class="absolute align-top cursor-pointer">
-                            <svg id="pending-btn" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"class ="h-4 w-4 inline-flex relative">
-                                <path fill-rule="evenodd" d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z" clip-rule="evenodd" />
-                            </svg>
-                        </span>
+                                </ul>
+                            </div>
+                            <div class="col-12 col-md-3 col-xl-2">
+                                                                    <div class="text-right">
+                                        <div class="text-right" style="line-height: 16px;">
+                                            <span class="align-middle small">Balance:</span>
+                                            <span class="align-middle small" data-container="user-balance">2.40</span>
+                                        </div>
+                                        <div class="text-right" style="line-height: 16px;">
+                                            <span class="align-middle small">
+                                                <a href="https://www.advertisecoin.com/" target="_blank">@</a>
+                                                <span data-container="user-balance-advertise-coin">0.000000</span>
+                                            </span>
+                                        </div>
+                                        <div class="text-right" style="line-height: 16px;">
+                                            <span class="align-middle small">
+                                                peter007
+                                                                                            </span>
+                                            <a href="/logout" class="align-middle small" type="button" target="_blank">Logout</a>
+                                        </div>
+                                    </div>
+                                                            </div>
+                        </div>
                     </div>
-                    <div class="text-sm uppercase text-grey tracking-wide">
-                        Ausstehende Surfpunkte
-                    </div>
-                                            <span class="animate-ping relative inline-flex rounded-full h-3 w-3 bg-red-600"></span>
-                    
-                </div>
-            </div>
-            <div class="w-1/3 text-center py-8">
-                <div class="border-r">
-                    <div class="text-gray-600er mb-2">
-                        <span class="text-3xl align-top"><span class="text-green align-top"></span></span>
-                        <span class="text-5xl">0.00005035</span>
-                        <span class="text-3xl align-top">&#8383;</span>
-                    </div>
-                    <div class="text-sm uppercase text-grey tracking-wide">
-                        Guthaben
-                    </div>
-                </div>
-            </div>
-            <div class="w-1/3 text-center py-8">
-                <div>
-                    <div class="text-gray-600er mb-2">
-                        <span class="text-3xl align-top"><span class="text-green align-top">+</span></span>
-                        <span class="text-5xl">0.00005035</span>
-                        <span class="text-3xl align-top">&#8383;</span>
-                    </div>
-                    <div class="text-sm uppercase text-grey tracking-wide">
-                        Verdienst (Gesamt)
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="flex justify-center">
+                </nav>
+            </header>
+            
+                        <main role="main" class="flex-shrink-0 mt-0 mt-md-5">
+                <div class="container my-5">
+                    <div class="row">
+                        <div class="col-12 d-none d-md-block col-md-3 col-xl-2 mt-0 mt-md-n5 sidebar text-center">
+                            <h1>Visits 24 hours</h1>
+                            <hr>
+                            <h6 class="mb-1">Last updated</h6>
+                            <table class="table table-xs mb-0" data-container="country-statistics-table">
+                                <thead>
+                                <tr>
+                                    <th colspan="3" class="text-center" data-container="country-statistics-last-updated-at">
+                                                                                    25/06/2021 20:25
+                                                                            </th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr data-toggle="tooltip" title="United States<br>Page views last 24 hours:<br> 30623<br>Unique IPs last 24 hours:<br> 4617<br>Last updated:<br>20:25:05 25/06/2021">
+                                        <td class="align-middle">
+                                            <span class="flag-icon flag-icon-us d-inline-block mr-1" style="width: 20px; height: 15px;"></span>
+                                        </td>
+                                        <td class="align-middle">30623</td>
+                                        <td class="align-middle">4617</td>
+                                    </tr>
+                                                                    <tr data-toggle="tooltip" title="Germany<br>Page views last 24 hours:<br> 15417<br>Unique IPs last 24 hours:<br> 413<br>Last updated:<br>20:25:04 25/06/2021">
+                                        <td class="align-middle">
+                                            <span class="flag-icon flag-icon-de d-inline-block mr-1" style="width: 20px; height: 15px;"></span>
+                                        </td>
+                                        <td class="align-middle">15417</td>
+                                        <td class="align-middle">413</td>
+                                    </tr>
+                                                                    <tr data-toggle="tooltip" title="Russia<br>Page views last 24 hours:<br> 7966<br>Unique IPs last 24 hours:<br> 1115<br>Last updated:<br>20:25:05 25/06/2021">
+                                        <td class="align-middle">
+                                            <span class="flag-icon flag-icon-ru d-inline-block mr-1" style="width: 20px; height: 15px;"></span>
+                                        </td>
+                                        <td class="align-middle">7966</td>
+                                        <td class="align-middle">1115</td>
+                                    </tr>
+                                                                    <tr data-toggle="tooltip" title="Ukraine<br>Page views last 24 hours:<br> 4335<br>Unique IPs last 24 hours:<br> 232<br>Last updated:<br>20:25:05 25/06/2021">
+                                        <td class="align-middle">
+                                            <span class="flag-icon flag-icon-ua d-inline-block mr-1" style="width: 20px; height: 15px;"></span>
+                                        </td>
+                                        <td class="align-middle">4335</td>
+                                        <td class="align-middle">232</td>
+                                    </tr>
+                                                                    <tr data-toggle="tooltip" title="Turkey<br>Page views last 24 hours:<br> 3480<br>Unique IPs last 24 hours:<br> 247<br>Last updated:<br>20:25:05 25/06/2021">
+                                        <td class="align-middle">
+                                            <span class="flag-icon flag-icon-tr d-inline-block mr-1" style="width: 20px; height: 15px;"></span>
+                                        </td>
+                                        <td class="align-middle">3480</td>
+                                        <td class="align-middle">247</td>
+                                    </tr>
+                                                                    <tr data-toggle="tooltip" title="Brazil<br>Page views last 24 hours:<br> 3387<br>Unique IPs last 24 hours:<br> 341<br>Last updated:<br>20:25:04 25/06/2021">
+                                        <td class="align-middle">
+                                            <span class="flag-icon flag-icon-br d-inline-block mr-1" style="width: 20px; height: 15px;"></span>
+                                        </td>
+                                        <td class="align-middle">3387</td>
+                                        <td class="align-middle">341</td>
+                                    </tr>
+                                                                    <tr data-toggle="tooltip" title="Taiwan<br>Page views last 24 hours:<br> 3098<br>Unique IPs last 24 hours:<br> 329<br>Last updated:<br>20:25:05 25/06/2021">
+                                        <td class="align-middle">
+                                            <span class="flag-icon flag-icon-tw d-inline-block mr-1" style="width: 20px; height: 15px;"></span>
+                                        </td>
+                                        <td class="align-middle">3098</td>
+                                        <td class="align-middle">329</td>
+                                    </tr>
+                                                                    <tr data-toggle="tooltip" title="Netherlands<br>Page views last 24 hours:<br> 3058<br>Unique IPs last 24 hours:<br> 472<br>Last updated:<br>20:25:05 25/06/2021">
+                                        <td class="align-middle">
+                                            <span class="flag-icon flag-icon-nl d-inline-block mr-1" style="width: 20px; height: 15px;"></span>
+                                        </td>
+                                        <td class="align-middle">3058</td>
+                                        <td class="align-middle">472</td>
+                                    </tr>
+                                                                    <tr data-toggle="tooltip" title="France<br>Page views last 24 hours:<br> 2756<br>Unique IPs last 24 hours:<br> 179<br>Last updated:<br>20:25:04 25/06/2021">
+                                        <td class="align-middle">
+                                            <span class="flag-icon flag-icon-fr d-inline-block mr-1" style="width: 20px; height: 15px;"></span>
+                                        </td>
+                                        <td class="align-middle">2756</td>
+                                        <td class="align-middle">179</td>
+                                    </tr>
+                                                                    <tr data-toggle="tooltip" title="Bulgaria<br>Page views last 24 hours:<br> 2482<br>Unique IPs last 24 hours:<br> 98<br>Last updated:<br>20:25:04 25/06/2021">
+                                        <td class="align-middle">
+                                            <span class="flag-icon flag-icon-bg d-inline-block mr-1" style="width: 20px; height: 15px;"></span>
+                                        </td>
+                                        <td class="align-middle">2482</td>
+                                        <td class="align-middle">98</td>
+                                    </tr>
+                                                                    <tr data-toggle="tooltip" title="Singapore<br>Page views last 24 hours:<br> 2167<br>Unique IPs last 24 hours:<br> 378<br>Last updated:<br>20:25:05 25/06/2021">
+                                        <td class="align-middle">
+                                            <span class="flag-icon flag-icon-sg d-inline-block mr-1" style="width: 20px; height: 15px;"></span>
+                                        </td>
+                                        <td class="align-middle">2167</td>
+                                        <td class="align-middle">378</td>
+                                    </tr>
+                                                                    <tr data-toggle="tooltip" title="United Kingdom<br>Page views last 24 hours:<br> 2135<br>Unique IPs last 24 hours:<br> 172<br>Last updated:<br>20:25:04 25/06/2021">
+                                        <td class="align-middle">
+                                            <span class="flag-icon flag-icon-gb d-inline-block mr-1" style="width: 20px; height: 15px;"></span>
+                                        </td>
+                                        <td class="align-middle">2135</td>
+                                        <td class="align-middle">172</td>
+                                    </tr>
+                                                                    <tr data-toggle="tooltip" title="Canada<br>Page views last 24 hours:<br> 2077<br>Unique IPs last 24 hours:<br> 609<br>Last updated:<br>20:25:04 25/06/2021">
+                                        <td class="align-middle">
+                                            <span class="flag-icon flag-icon-ca d-inline-block mr-1" style="width: 20px; height: 15px;"></span>
+                                        </td>
+                                        <td class="align-middle">2077</td>
+                                        <td class="align-middle">609</td>
+                                    </tr>
+                                                                    <tr data-toggle="tooltip" title="Indonesia<br>Page views last 24 hours:<br> 1813<br>Unique IPs last 24 hours:<br> 151<br>Last updated:<br>20:25:04 25/06/2021">
+                                        <td class="align-middle">
+                                            <span class="flag-icon flag-icon-id d-inline-block mr-1" style="width: 20px; height: 15px;"></span>
+                                        </td>
+                                        <td class="align-middle">1813</td>
+                                        <td class="align-middle">151</td>
+                                    </tr>
+                                                                    <tr data-toggle="tooltip" title="India<br>Page views last 24 hours:<br> 1708<br>Unique IPs last 24 hours:<br> 369<br>Last updated:<br>20:25:04 25/06/2021">
+                                        <td class="align-middle">
+                                            <span class="flag-icon flag-icon-in d-inline-block mr-1" style="width: 20px; height: 15px;"></span>
+                                        </td>
+                                        <td class="align-middle">1708</td>
+                                        <td class="align-middle">369</td>
+                                    </tr>
+                                                                    <tr data-toggle="tooltip" title="Cambodia<br>Page views last 24 hours:<br> 1705<br>Unique IPs last 24 hours:<br> 54<br>Last updated:<br>20:25:04 25/06/2021">
+                                        <td class="align-middle">
+                                            <span class="flag-icon flag-icon-kh d-inline-block mr-1" style="width: 20px; height: 15px;"></span>
+                                        </td>
+                                        <td class="align-middle">1705</td>
+                                        <td class="align-middle">54</td>
+                                    </tr>
+                                                                    <tr data-toggle="tooltip" title="Japan<br>Page views last 24 hours:<br> 1576<br>Unique IPs last 24 hours:<br> 347<br>Last updated:<br>20:25:04 25/06/2021">
+                                        <td class="align-middle">
+                                            <span class="flag-icon flag-icon-jp d-inline-block mr-1" style="width: 20px; height: 15px;"></span>
+                                        </td>
+                                        <td class="align-middle">1576</td>
+                                        <td class="align-middle">347</td>
+                                    </tr>
+                                                                    <tr data-toggle="tooltip" title="Vietnam<br>Page views last 24 hours:<br> 1324<br>Unique IPs last 24 hours:<br> 182<br>Last updated:<br>20:25:05 25/06/2021">
+                                        <td class="align-middle">
+                                            <span class="flag-icon flag-icon-vn d-inline-block mr-1" style="width: 20px; height: 15px;"></span>
+                                        </td>
+                                        <td class="align-middle">1324</td>
+                                        <td class="align-middle">182</td>
+                                    </tr>
+                                                                    <tr data-toggle="tooltip" title="Romania<br>Page views last 24 hours:<br> 1278<br>Unique IPs last 24 hours:<br> 68<br>Last updated:<br>20:25:05 25/06/2021">
+                                        <td class="align-middle">
+                                            <span class="flag-icon flag-icon-ro d-inline-block mr-1" style="width: 20px; height: 15px;"></span>
+                                        </td>
+                                        <td class="align-middle">1278</td>
+                                        <td class="align-middle">68</td>
+                                    </tr>
+                                                                    <tr data-toggle="tooltip" title="South Korea<br>Page views last 24 hours:<br> 1244<br>Unique IPs last 24 hours:<br> 479<br>Last updated:<br>20:25:04 25/06/2021">
+                                        <td class="align-middle">
+                                            <span class="flag-icon flag-icon-kr d-inline-block mr-1" style="width: 20px; height: 15px;"></span>
+                                        </td>
+                                        <td class="align-middle">1244</td>
+                                        <td class="align-middle">479</td>
+                                    </tr>
+                                                                    <tr data-toggle="tooltip" title="Italy<br>Page views last 24 hours:<br> 1243<br>Unique IPs last 24 hours:<br> 129<br>Last updated:<br>20:25:04 25/06/2021">
+                                        <td class="align-middle">
+                                            <span class="flag-icon flag-icon-it d-inline-block mr-1" style="width: 20px; height: 15px;"></span>
+                                        </td>
+                                        <td class="align-middle">1243</td>
+                                        <td class="align-middle">129</td>
+                                    </tr>
+                                                                    <tr data-toggle="tooltip" title="Portugal<br>Page views last 24 hours:<br> 1057<br>Unique IPs last 24 hours:<br> 35<br>Last updated:<br>20:25:05 25/06/2021">
+                                        <td class="align-middle">
+                                            <span class="flag-icon flag-icon-pt d-inline-block mr-1" style="width: 20px; height: 15px;"></span>
+                                        </td>
+                                        <td class="align-middle">1057</td>
+                                        <td class="align-middle">35</td>
+                                    </tr>
+                                                                    <tr data-toggle="tooltip" title="Spain<br>Page views last 24 hours:<br> 1005<br>Unique IPs last 24 hours:<br> 55<br>Last updated:<br>20:25:04 25/06/2021">
+                                        <td class="align-middle">
+                                            <span class="flag-icon flag-icon-es d-inline-block mr-1" style="width: 20px; height: 15px;"></span>
+                                        </td>
+                                        <td class="align-middle">1005</td>
+                                        <td class="align-middle">55</td>
+                                    </tr>
+                                                                    <tr data-toggle="tooltip" title="Sweden<br>Page views last 24 hours:<br> 930<br>Unique IPs last 24 hours:<br> 45<br>Last updated:<br>20:25:05 25/06/2021">
+                                        <td class="align-middle">
+                                            <span class="flag-icon flag-icon-se d-inline-block mr-1" style="width: 20px; height: 15px;"></span>
+                                        </td>
+                                        <td class="align-middle">930</td>
+                                        <td class="align-middle">45</td>
+                                    </tr>
+                                                                    <tr data-toggle="tooltip" title="Bangladesh<br>Page views last 24 hours:<br> 918<br>Unique IPs last 24 hours:<br> 184<br>Last updated:<br>20:25:04 25/06/2021">
+                                        <td class="align-middle">
+                                            <span class="flag-icon flag-icon-bd d-inline-block mr-1" style="width: 20px; height: 15px;"></span>
+                                        </td>
+                                        <td class="align-middle">918</td>
+                                        <td class="align-middle">184</td>
+                                    </tr>
+                                                                    <tr data-toggle="tooltip" title="Philippines<br>Page views last 24 hours:<br> 912<br>Unique IPs last 24 hours:<br> 34<br>Last updated:<br>20:25:05 25/06/2021">
+                                        <td class="align-middle">
+                                            <span class="flag-icon flag-icon-ph d-inline-block mr-1" style="width: 20px; height: 15px;"></span>
+                                        </td>
+                                        <td class="align-middle">912</td>
+                                        <td class="align-middle">34</td>
+                                    </tr>
+                                                                    <tr data-toggle="tooltip" title="Israel<br>Page views last 24 hours:<br> 841<br>Unique IPs last 24 hours:<br> 39<br>Last updated:<br>20:25:04 25/06/2021">
+                                        <td class="align-middle">
+                                            <span class="flag-icon flag-icon-il d-inline-block mr-1" style="width: 20px; height: 15px;"></span>
+                                        </td>
+                                        <td class="align-middle">841</td>
+                                        <td class="align-middle">39</td>
+                                    </tr>
+                                                                    <tr data-toggle="tooltip" title="Hungary<br>Page views last 24 hours:<br> 837<br>Unique IPs last 24 hours:<br> 44<br>Last updated:<br>20:25:04 25/06/2021">
+                                        <td class="align-middle">
+                                            <span class="flag-icon flag-icon-hu d-inline-block mr-1" style="width: 20px; height: 15px;"></span>
+                                        </td>
+                                        <td class="align-middle">837</td>
+                                        <td class="align-middle">44</td>
+                                    </tr>
+                                                                    <tr data-toggle="tooltip" title="Iran<br>Page views last 24 hours:<br> 779<br>Unique IPs last 24 hours:<br> 102<br>Last updated:<br>20:25:04 25/06/2021">
+                                        <td class="align-middle">
+                                            <span class="flag-icon flag-icon-ir d-inline-block mr-1" style="width: 20px; height: 15px;"></span>
+                                        </td>
+                                        <td class="align-middle">779</td>
+                                        <td class="align-middle">102</td>
+                                    </tr>
+                                                                    <tr data-toggle="tooltip" title="Seychelles<br>Page views last 24 hours:<br> 697<br>Unique IPs last 24 hours:<br> 444<br>Last updated:<br>20:25:05 25/06/2021">
+                                        <td class="align-middle">
+                                            <span class="flag-icon flag-icon-sc d-inline-block mr-1" style="width: 20px; height: 15px;"></span>
+                                        </td>
+                                        <td class="align-middle">697</td>
+                                        <td class="align-middle">444</td>
+                                    </tr>
+                                                                </tbody>
+                            </table>
+                            <a href="/account/country-statistics" class="d-block mb-1" style="font-size: 0.75rem;" target="_blank">
+                                See more
+                            </a>
+                        </div>
+                        <div class="col-12 col-md-6 col-xl-8 mt-0 mt-md-n5">
+                                
+                                <div class="row">
+        <div id="earn-credits-div" class="col-12">
+            <h1>Earn Credits</h1>
+            <hr>
+                            <p class="mb-1">Next site in <span id="next-site-in-seconds" class="font-weight-bold"></span> seconds.</p>
+                <p>You will earn <span id="you-will-earn-credits" class="font-weight-bold"></span> credits by visiting this site.</p>
+                <p>Current Site</p>
+                <p>
+                    <a href="" id="current-site"  target="_blank"></a>
 
-            <a href="/surfbar" class="py-2 px-2 text-center justify-content-center mb-3 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full" target="_blank">
-                Surfbar <!--</br>  -->
-            </a>
+                    <a href="#" class="d-inline-block float-right" data-toggle="report-site" data-site-uuid="">Report</a>
+                </p>
+                <p id="recently-visited-sites-start">List of recently visited sites</p>
+                
+                <h1 class="mt-3">Info</h1>
+                <hr>
+                <p>
+                    Credits bank: <span data-container="user-balance">2.40</span> credits
+                    <i class="fas fa-info-circle" data-toggle="tooltip" data-title="Credits that are not allocated to your sites."></i>
+                </p>
+                <p>
+                    Site credits: <span data-container="site-credits">0.00</span> credits
+                    <i class="fas fa-info-circle" data-toggle="tooltip" data-title="Credits that are allocated to your sites."></i>
+                </p>
+                <div class="table-responsive">
+                    <table class="table table-sm">
+                        <tbody>
+                        <tr>
+                            <th class="align-middle" style="width: 35%;">Automatic distribution</th>
+                            <td class="align-middle" style="width: 65%;">
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" id="automatic-distribution-yes-input" name="automatic_distribution" class="custom-control-input" checked value="1">
+                                    <label class="custom-control-label" for="automatic-distribution-yes-input">Yes</label>
+                                </div>
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" id="automatic-distribution-no-input" name="automatic_distribution" class="custom-control-input"  value="0">
+                                    <label class="custom-control-label" for="automatic-distribution-no-input">No</label>
+                                </div>
+                                <i class="fas fa-info-circle" data-toggle="tooltip" data-title="The automatic distribution will automatically transfer the credits you earned into your websites! You just need to launch the surf and Webhit will do the rest!"></i>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                    </div>
+                <div class="col-12">
+            <h1>Active Viewers</h1>
+            <hr>
+            <div class="table-responsive">
+    <table id="active-viewers-table" class="table table-sm">
+        <thead>
+        <tr>
+            <th style="width: 35%;">IP Address</th>
+            <th style="width: 65%;">Last url</th>
+        </tr>
+        </thead>
+        <tbody>
+                    <tr>
+                <td colspan="2">No active viewers found.</td>
+            </tr>
+                </tbody>
+    </table>
+</div>
         </div>
     </div>
-
-
-
-    <div class="flex flex-wrap -mx-4">
-        <div class="w-full mb-6 lg:mb-0 lg:w-1/2 px-4 flex flex-col">
-            <div class="flex-grow flex flex-col bg-white border-t border-b sm:rounded sm:border shadow overflow-hidden">
-                <div class="border-b">
-                    <div class="flex justify-between px-6 -mb-px">
-                        <h3 class="text-blue-dark py-4 font-normal text-lg">Historie</h3>
-                    </div>
-                </div>
-
-
-                <div class="flex items-center justify-center" id="chart_div"></div>
-
-            </div>
-        </div>
-        <div class="w-full lg:w-1/2 px-4">
-            <div class="bg-white border-t border-b sm:rounded sm:border shadow">
-                <div class="border-b">
-                    <div class="flex justify-between px-6 -mb-px">
-                        <h3 class="text-blue-dark py-4 font-normal text-lg">Letzte Aktivitäten</h3>
-                        <div class="text-blue-dark py-4 font-normal text-lg">
-                            <div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
-                                <input onclick="toggleTable()" type="checkbox" name="toggle" id="toggletable" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer"/>
-                                <label for="toggle" class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer"></label>
-                            </div>
                         </div>
-                    </div>
-
-
-                </div>
-                <div>
-                                        <div id="daily" style="display: table" class="table w-full">
-                        <div class="table-row-group">
-                                                                <div class=" table-row">
-                                        <div class="table-cell  text-black px-4 py-2 text-sm">Umrechnung</div>
-                                        <div class="table-cell  text-black px-4 py-2 text-sm">0.00000001 &#8383;</div>
-                                        <div class="table-cell  text-black px-4 py-2 text-sm">25/06/2021</div>
-                                    </div>
-                                                                <div class=" table-row">
-                                        <div class="table-cell bg-gray-200 text-black px-4 py-2 text-sm">Umrechnung</div>
-                                        <div class="table-cell bg-gray-200 text-black px-4 py-2 text-sm">0.00000000 &#8383;</div>
-                                        <div class="table-cell bg-gray-200 text-black px-4 py-2 text-sm">04/05/2021</div>
-                                    </div>
-                                                                <div class=" table-row">
-                                        <div class="table-cell  text-black px-4 py-2 text-sm">Umrechnung</div>
-                                        <div class="table-cell  text-black px-4 py-2 text-sm">0.00000006 &#8383;</div>
-                                        <div class="table-cell  text-black px-4 py-2 text-sm">03/05/2021</div>
-                                    </div>
-                                                                <div class=" table-row">
-                                        <div class="table-cell bg-gray-200 text-black px-4 py-2 text-sm">Umrechnung</div>
-                                        <div class="table-cell bg-gray-200 text-black px-4 py-2 text-sm">0.00000005 &#8383;</div>
-                                        <div class="table-cell bg-gray-200 text-black px-4 py-2 text-sm">02/05/2021</div>
-                                    </div>
-                                                                <div class=" table-row">
-                                        <div class="table-cell  text-black px-4 py-2 text-sm">Umrechnung</div>
-                                        <div class="table-cell  text-black px-4 py-2 text-sm">0.00000013 &#8383;</div>
-                                        <div class="table-cell  text-black px-4 py-2 text-sm">01/05/2021</div>
-                                    </div>
-                                                                <div class=" table-row">
-                                        <div class="table-cell bg-gray-200 text-black px-4 py-2 text-sm">Umrechnung</div>
-                                        <div class="table-cell bg-gray-200 text-black px-4 py-2 text-sm">0.00000022 &#8383;</div>
-                                        <div class="table-cell bg-gray-200 text-black px-4 py-2 text-sm">30/04/2021</div>
-                                    </div>
-                                                                <div class=" table-row">
-                                        <div class="table-cell  text-black px-4 py-2 text-sm">Umrechnung</div>
-                                        <div class="table-cell  text-black px-4 py-2 text-sm">0.00004639 &#8383;</div>
-                                        <div class="table-cell  text-black px-4 py-2 text-sm">29/04/2021</div>
-                                    </div>
-                                                                <div class=" table-row">
-                                        <div class="table-cell bg-gray-200 text-black px-4 py-2 text-sm">Umrechnung</div>
-                                        <div class="table-cell bg-gray-200 text-black px-4 py-2 text-sm">0.00000344 &#8383;</div>
-                                        <div class="table-cell bg-gray-200 text-black px-4 py-2 text-sm">28/04/2021</div>
-                                    </div>
-                                                                <div class=" table-row">
-                                        <div class="table-cell  text-black px-4 py-2 text-sm">Umrechnung</div>
-                                        <div class="table-cell  text-black px-4 py-2 text-sm">0.00000001 &#8383;</div>
-                                        <div class="table-cell  text-black px-4 py-2 text-sm">27/04/2021</div>
-                                    </div>
-                                                                <div class=" table-row">
-                                        <div class="table-cell bg-gray-200 text-black px-4 py-2 text-sm">Umrechnung</div>
-                                        <div class="table-cell bg-gray-200 text-black px-4 py-2 text-sm">0.00000003 &#8383;</div>
-                                        <div class="table-cell bg-gray-200 text-black px-4 py-2 text-sm">23/04/2021</div>
-                                    </div>
+                        <div class="col-12 col-md-3 col-xl-2 mt-0 mt-md-n5 text-center">
+                            <h1>Top 100</h1>
+                            <hr>
+                                                            <h6 class="mb-1">Daily</h6>
+                                <div class="table-responsive" style="font-size: 0.75rem;">
+    <table class="table table-xs mb-0" data-container="statistics-table" data-type="daily">
+        <thead>
+        <tr>
+            <th></th>
+            <th>Username</th>
+            <th>Points</th>
+        </tr>
+        </thead>
+        <tbody>
+                            <tr class=" ">
+                <td>1</td>
+                <td style="vertical-align: middle;"><img class="float-left" src="/build/images/platinum.3186bd0a.png" width="18" height="18" alt="Platinum" data-toggle="tooltip" data-title="Platinum"><span data-toggle="tooltip" data-title="OB">OB</span></td>
+                <td>487380.80</td>
+            </tr>
+                    <tr class=" ">
+                <td>2</td>
+                <td style="vertical-align: middle;"><img class="float-left" src="/build/images/platinum.3186bd0a.png" width="18" height="18" alt="Platinum" data-toggle="tooltip" data-title="Platinum"><span data-toggle="tooltip" data-title="AdBank">AdBank</span></td>
+                <td>366961.60</td>
+            </tr>
+                    <tr class=" ">
+                <td>3</td>
+                <td style="vertical-align: middle;"><img class="float-left" src="/build/images/platinum.3186bd0a.png" width="18" height="18" alt="Platinum" data-toggle="tooltip" data-title="Platinum"><span data-toggle="tooltip" data-title="feeney.precious">feeney.p</span>...</td>
+                <td>269514.00</td>
+            </tr>
+                    <tr class=" ">
+                <td>4</td>
+                <td style="vertical-align: middle;"><img class="float-left" src="/build/images/platinum.3186bd0a.png" width="18" height="18" alt="Platinum" data-toggle="tooltip" data-title="Platinum"><span data-toggle="tooltip" data-title="kukis960">kukis960</span></td>
+                <td>251004.00</td>
+            </tr>
+                    <tr class=" ">
+                <td>5</td>
+                <td style="vertical-align: middle;"><img class="float-left" src="/build/images/platinum.3186bd0a.png" width="18" height="18" alt="Platinum" data-toggle="tooltip" data-title="Platinum"><span data-toggle="tooltip" data-title="emma.rutherford">emma.rut</span>...</td>
+                <td>222840.00</td>
+            </tr>
+                    <tr class=" ">
+                <td>6</td>
+                <td style="vertical-align: middle;"><img class="float-left" src="/build/images/gold.9edaf7ec.png" width="18" height="18" alt="Gold" data-toggle="tooltip" data-title="Gold"><span data-toggle="tooltip" data-title="WebGarson">WebGarso</span>...</td>
+                <td>221854.00</td>
+            </tr>
+                    <tr class=" ">
+                <td>7</td>
+                <td style="vertical-align: middle;"><img class="float-left" src="/build/images/platinum.3186bd0a.png" width="18" height="18" alt="Platinum" data-toggle="tooltip" data-title="Platinum"><span data-toggle="tooltip" data-title="leonardo">leonardo</span></td>
+                <td>201304.00</td>
+            </tr>
+                    <tr class=" ">
+                <td>8</td>
+                <td style="vertical-align: middle;"><img class="float-left" src="/build/images/platinum.3186bd0a.png" width="18" height="18" alt="Platinum" data-toggle="tooltip" data-title="Platinum"><span data-toggle="tooltip" data-title="wuckert.norma">wuckert.</span>...</td>
+                <td>157402.00</td>
+            </tr>
+                    <tr class=" ">
+                <td>9</td>
+                <td style="vertical-align: middle;"><img class="float-left" src="/build/images/platinum.3186bd0a.png" width="18" height="18" alt="Platinum" data-toggle="tooltip" data-title="Platinum"><span data-toggle="tooltip" data-title="ularson">ularson</span></td>
+                <td>101746.80</td>
+            </tr>
+                    <tr class=" ">
+                <td>10</td>
+                <td style="vertical-align: middle;"><img class="float-left" src="/build/images/gold.9edaf7ec.png" width="18" height="18" alt="Gold" data-toggle="tooltip" data-title="Gold"><span data-toggle="tooltip" data-title="Ria">Ria</span></td>
+                <td>47186.40</td>
+            </tr>
+                </tbody>
+    </table>
+</div>
+                                <a href="/account/statistics/daily" class="d-block mb-1" style="font-size: 0.75rem;" target="_blank">
+                                    See more
+                                </a>
+                                                            <h6 class="mb-1">Weekly</h6>
+                                <div class="table-responsive" style="font-size: 0.75rem;">
+    <table class="table table-xs mb-0" data-container="statistics-table" data-type="weekly">
+        <thead>
+        <tr>
+            <th></th>
+            <th>Username</th>
+            <th>Points</th>
+        </tr>
+        </thead>
+        <tbody>
+                            <tr class=" ">
+                <td>1</td>
+                <td style="vertical-align: middle;"><img class="float-left" src="/build/images/platinum.3186bd0a.png" width="18" height="18" alt="Platinum" data-toggle="tooltip" data-title="Platinum"><span data-toggle="tooltip" data-title="OB">OB</span></td>
+                <td>3116595.20</td>
+            </tr>
+                    <tr class=" ">
+                <td>2</td>
+                <td style="vertical-align: middle;"><img class="float-left" src="/build/images/platinum.3186bd0a.png" width="18" height="18" alt="Platinum" data-toggle="tooltip" data-title="Platinum"><span data-toggle="tooltip" data-title="AdBank">AdBank</span></td>
+                <td>2478776.80</td>
+            </tr>
+                    <tr class=" ">
+                <td>3</td>
+                <td style="vertical-align: middle;"><img class="float-left" src="/build/images/platinum.3186bd0a.png" width="18" height="18" alt="Platinum" data-toggle="tooltip" data-title="Platinum"><span data-toggle="tooltip" data-title="kukis960">kukis960</span></td>
+                <td>1718982.00</td>
+            </tr>
+                    <tr class=" ">
+                <td>4</td>
+                <td style="vertical-align: middle;"><img class="float-left" src="/build/images/platinum.3186bd0a.png" width="18" height="18" alt="Platinum" data-toggle="tooltip" data-title="Platinum"><span data-toggle="tooltip" data-title="feeney.precious">feeney.p</span>...</td>
+                <td>1421520.40</td>
+            </tr>
+                    <tr class=" ">
+                <td>5</td>
+                <td style="vertical-align: middle;"><img class="float-left" src="/build/images/platinum.3186bd0a.png" width="18" height="18" alt="Platinum" data-toggle="tooltip" data-title="Platinum"><span data-toggle="tooltip" data-title="emma.rutherford">emma.rut</span>...</td>
+                <td>1341826.40</td>
+            </tr>
+                    <tr class=" ">
+                <td>6</td>
+                <td style="vertical-align: middle;"><img class="float-left" src="/build/images/gold.9edaf7ec.png" width="18" height="18" alt="Gold" data-toggle="tooltip" data-title="Gold"><span data-toggle="tooltip" data-title="WebGarson">WebGarso</span>...</td>
+                <td>1206682.00</td>
+            </tr>
+                    <tr class=" ">
+                <td>7</td>
+                <td style="vertical-align: middle;"><img class="float-left" src="/build/images/platinum.3186bd0a.png" width="18" height="18" alt="Platinum" data-toggle="tooltip" data-title="Platinum"><span data-toggle="tooltip" data-title="leonardo">leonardo</span></td>
+                <td>1191196.80</td>
+            </tr>
+                    <tr class=" ">
+                <td>8</td>
+                <td style="vertical-align: middle;"><img class="float-left" src="/build/images/platinum.3186bd0a.png" width="18" height="18" alt="Platinum" data-toggle="tooltip" data-title="Platinum"><span data-toggle="tooltip" data-title="wuckert.norma">wuckert.</span>...</td>
+                <td>871776.40</td>
+            </tr>
+                    <tr class=" ">
+                <td>9</td>
+                <td style="vertical-align: middle;"><img class="float-left" src="/build/images/platinum.3186bd0a.png" width="18" height="18" alt="Platinum" data-toggle="tooltip" data-title="Platinum"><span data-toggle="tooltip" data-title="ularson">ularson</span></td>
+                <td>571117.20</td>
+            </tr>
+                    <tr class=" ">
+                <td>10</td>
+                <td style="vertical-align: middle;"><img class="float-left" src="/build/images/gold.9edaf7ec.png" width="18" height="18" alt="Gold" data-toggle="tooltip" data-title="Gold"><span data-toggle="tooltip" data-title="Ria">Ria</span></td>
+                <td>286848.80</td>
+            </tr>
+                </tbody>
+    </table>
+</div>
+                                <a href="/account/statistics/weekly" class="d-block mb-1" style="font-size: 0.75rem;" target="_blank">
+                                    See more
+                                </a>
+                                                            <h6 class="mb-1">Monthly</h6>
+                                <div class="table-responsive" style="font-size: 0.75rem;">
+    <table class="table table-xs mb-0" data-container="statistics-table" data-type="monthly">
+        <thead>
+        <tr>
+            <th></th>
+            <th>Username</th>
+            <th>Points</th>
+        </tr>
+        </thead>
+        <tbody>
+                            <tr class=" ">
+                <td>1</td>
+                <td style="vertical-align: middle;"><img class="float-left" src="/build/images/platinum.3186bd0a.png" width="18" height="18" alt="Platinum" data-toggle="tooltip" data-title="Platinum"><span data-toggle="tooltip" data-title="OB">OB</span></td>
+                <td>16240457.40</td>
+            </tr>
+                    <tr class=" ">
+                <td>2</td>
+                <td style="vertical-align: middle;"><img class="float-left" src="/build/images/platinum.3186bd0a.png" width="18" height="18" alt="Platinum" data-toggle="tooltip" data-title="Platinum"><span data-toggle="tooltip" data-title="kukis960">kukis960</span></td>
+                <td>14970782.00</td>
+            </tr>
+                    <tr class=" ">
+                <td>3</td>
+                <td style="vertical-align: middle;"><img class="float-left" src="/build/images/platinum.3186bd0a.png" width="18" height="18" alt="Platinum" data-toggle="tooltip" data-title="Platinum"><span data-toggle="tooltip" data-title="AdBank">AdBank</span></td>
+                <td>8652595.40</td>
+            </tr>
+                    <tr class=" ">
+                <td>4</td>
+                <td style="vertical-align: middle;"><img class="float-left" src="/build/images/platinum.3186bd0a.png" width="18" height="18" alt="Platinum" data-toggle="tooltip" data-title="Platinum"><span data-toggle="tooltip" data-title="feeney.precious">feeney.p</span>...</td>
+                <td>7140871.60</td>
+            </tr>
+                    <tr class=" ">
+                <td>5</td>
+                <td style="vertical-align: middle;"><img class="float-left" src="/build/images/platinum.3186bd0a.png" width="18" height="18" alt="Platinum" data-toggle="tooltip" data-title="Platinum"><span data-toggle="tooltip" data-title="emma.rutherford">emma.rut</span>...</td>
+                <td>6917847.40</td>
+            </tr>
+                    <tr class=" ">
+                <td>6</td>
+                <td style="vertical-align: middle;"><img class="float-left" src="/build/images/platinum.3186bd0a.png" width="18" height="18" alt="Platinum" data-toggle="tooltip" data-title="Platinum"><span data-toggle="tooltip" data-title="leonardo">leonardo</span></td>
+                <td>6012696.40</td>
+            </tr>
+                    <tr class=" ">
+                <td>7</td>
+                <td style="vertical-align: middle;"><img class="float-left" src="/build/images/platinum.3186bd0a.png" width="18" height="18" alt="Platinum" data-toggle="tooltip" data-title="Platinum"><span data-toggle="tooltip" data-title="wuckert.norma">wuckert.</span>...</td>
+                <td>4371900.60</td>
+            </tr>
+                    <tr class=" ">
+                <td>8</td>
+                <td style="vertical-align: middle;"><img class="float-left" src="/build/images/gold.9edaf7ec.png" width="18" height="18" alt="Gold" data-toggle="tooltip" data-title="Gold"><span data-toggle="tooltip" data-title="WebGarson">WebGarso</span>...</td>
+                <td>4074239.80</td>
+            </tr>
+                    <tr class=" ">
+                <td>9</td>
+                <td style="vertical-align: middle;"><img class="float-left" src="/build/images/platinum.3186bd0a.png" width="18" height="18" alt="Platinum" data-toggle="tooltip" data-title="Platinum"><span data-toggle="tooltip" data-title="ularson">ularson</span></td>
+                <td>2909986.40</td>
+            </tr>
+                    <tr class=" ">
+                <td>10</td>
+                <td style="vertical-align: middle;"><img class="float-left" src="/build/images/gold.9edaf7ec.png" width="18" height="18" alt="Gold" data-toggle="tooltip" data-title="Gold"><span data-toggle="tooltip" data-title="Ria">Ria</span></td>
+                <td>1480224.20</td>
+            </tr>
+                </tbody>
+    </table>
+</div>
+                                <a href="/account/statistics/monthly" class="d-block mb-1" style="font-size: 0.75rem;" target="_blank">
+                                    See more
+                                </a>
                                                     </div>
                     </div>
+                </div>
+            </main>
+            
+                            <footer class="footer mt-auto py-3">
+                <div class="container">
+                    <span class="text-muted float-left">Copyright &copy; 2021 WebHit. All rights reserved.</span>
+                    <span class="text-muted float-left">
+                        &nbsp; <a href="mailto:support@webhit.net" target="_blank"><i class="fas fa-envelope"></i></a>
+                        | <a href="https://www.facebook.com/WebHit.net/" target="_blank"><i class="fab fa-facebook"></i></a>
+                    </span>
+                    <span class="text-muted float-right">Unique IPs last hour: <span data-container="unique_ips_count_last_hour">1979</span>. Unique IPs last 24h: <span data-container="unique_ips_count_last_day">14245</span>.</span>
+                </div>
+            </footer>
+            
 
-
-                    <div id="hourly" style="display: none" style="display: table" class="table w-full">
-                        <div class="table-row-group">
-                                                                                                <div class=" table-row">
-                                        <div class="table-cell  text-black px-4 py-2 text-sm">0 Uhr - 1 Uhr</div>
-                                        <div class="table-cell  text-black px-4 py-2 text-sm">0.00000000 BTP</div>
-                                    </div>
-                                                                    <div class=" table-row">
-                                        <div class="table-cell bg-gray-200 text-black px-4 py-2 text-sm">1 Uhr - 2 Uhr</div>
-                                        <div class="table-cell bg-gray-200 text-black px-4 py-2 text-sm">0.00000000 BTP</div>
-                                    </div>
-                                                                    <div class=" table-row">
-                                        <div class="table-cell  text-black px-4 py-2 text-sm">2 Uhr - 3 Uhr</div>
-                                        <div class="table-cell  text-black px-4 py-2 text-sm">0.00000000 BTP</div>
-                                    </div>
-                                                                    <div class=" table-row">
-                                        <div class="table-cell bg-gray-200 text-black px-4 py-2 text-sm">3 Uhr - 4 Uhr</div>
-                                        <div class="table-cell bg-gray-200 text-black px-4 py-2 text-sm">0.00000000 BTP</div>
-                                    </div>
-                                                                    <div class=" table-row">
-                                        <div class="table-cell  text-black px-4 py-2 text-sm">4 Uhr - 5 Uhr</div>
-                                        <div class="table-cell  text-black px-4 py-2 text-sm">0.00000000 BTP</div>
-                                    </div>
-                                                                    <div class=" table-row">
-                                        <div class="table-cell bg-gray-200 text-black px-4 py-2 text-sm">5 Uhr - 6 Uhr</div>
-                                        <div class="table-cell bg-gray-200 text-black px-4 py-2 text-sm">0.00000000 BTP</div>
-                                    </div>
-                                                                    <div class=" table-row">
-                                        <div class="table-cell  text-black px-4 py-2 text-sm">6 Uhr - 7 Uhr</div>
-                                        <div class="table-cell  text-black px-4 py-2 text-sm">0.00000000 BTP</div>
-                                    </div>
-                                                                    <div class=" table-row">
-                                        <div class="table-cell bg-gray-200 text-black px-4 py-2 text-sm">7 Uhr - 8 Uhr</div>
-                                        <div class="table-cell bg-gray-200 text-black px-4 py-2 text-sm">0.00000000 BTP</div>
-                                    </div>
-                                                                    <div class=" table-row">
-                                        <div class="table-cell  text-black px-4 py-2 text-sm">8 Uhr - 9 Uhr</div>
-                                        <div class="table-cell  text-black px-4 py-2 text-sm">0.00000000 BTP</div>
-                                    </div>
-                                                                    <div class=" table-row">
-                                        <div class="table-cell bg-gray-200 text-black px-4 py-2 text-sm">9 Uhr - 10 Uhr</div>
-                                        <div class="table-cell bg-gray-200 text-black px-4 py-2 text-sm">0.00000000 BTP</div>
-                                    </div>
-                                                                    <div class=" table-row">
-                                        <div class="table-cell  text-black px-4 py-2 text-sm">10 Uhr - 11 Uhr</div>
-                                        <div class="table-cell  text-black px-4 py-2 text-sm">0.00000000 BTP</div>
-                                    </div>
-                                                                    <div class=" table-row">
-                                        <div class="table-cell bg-gray-200 text-black px-4 py-2 text-sm">11 Uhr - 12 Uhr</div>
-                                        <div class="table-cell bg-gray-200 text-black px-4 py-2 text-sm">0.00000000 BTP</div>
-                                    </div>
-                                                                    <div class=" table-row">
-                                        <div class="table-cell  text-black px-4 py-2 text-sm">12 Uhr - 13 Uhr</div>
-                                        <div class="table-cell  text-black px-4 py-2 text-sm">0.00000000 BTP</div>
-                                    </div>
-                                                                    <div class=" table-row">
-                                        <div class="table-cell bg-gray-200 text-black px-4 py-2 text-sm">13 Uhr - 14 Uhr</div>
-                                        <div class="table-cell bg-gray-200 text-black px-4 py-2 text-sm">0.00000000 BTP</div>
-                                    </div>
-                                                                    <div class=" table-row">
-                                        <div class="table-cell  text-black px-4 py-2 text-sm">14 Uhr - 15 Uhr</div>
-                                        <div class="table-cell  text-black px-4 py-2 text-sm">0.00000000 BTP</div>
-                                    </div>
-                                                                    <div class=" table-row">
-                                        <div class="table-cell bg-gray-200 text-black px-4 py-2 text-sm">15 Uhr - 16 Uhr</div>
-                                        <div class="table-cell bg-gray-200 text-black px-4 py-2 text-sm">0.00000000 BTP</div>
-                                    </div>
-                                                                    <div class=" table-row">
-                                        <div class="table-cell  text-black px-4 py-2 text-sm">16 Uhr - 17 Uhr</div>
-                                        <div class="table-cell  text-black px-4 py-2 text-sm">0.00000000 BTP</div>
-                                    </div>
-                                                                    <div class=" table-row">
-                                        <div class="table-cell bg-gray-200 text-black px-4 py-2 text-sm">17 Uhr - 18 Uhr</div>
-                                        <div class="table-cell bg-gray-200 text-black px-4 py-2 text-sm">0.00000000 BTP</div>
-                                    </div>
-                                                                    <div class=" table-row">
-                                        <div class="table-cell  text-black px-4 py-2 text-sm">18 Uhr - 19 Uhr</div>
-                                        <div class="table-cell  text-black px-4 py-2 text-sm">0.00000000 BTP</div>
-                                    </div>
-                                                                    <div class=" table-row">
-                                        <div class="table-cell bg-gray-200 text-black px-4 py-2 text-sm">19 Uhr - 20 Uhr</div>
-                                        <div class="table-cell bg-gray-200 text-black px-4 py-2 text-sm">0.00000000 BTP</div>
-                                    </div>
-                                                                    <div class=" table-row">
-                                        <div class="table-cell  text-black px-4 py-2 text-sm">20 Uhr - 21 Uhr</div>
-                                        <div class="table-cell  text-black px-4 py-2 text-sm">0.00000000 BTP</div>
-                                    </div>
-                                                                    <div class=" table-row">
-                                        <div class="table-cell bg-gray-200 text-black px-4 py-2 text-sm">21 Uhr - 22 Uhr</div>
-                                        <div class="table-cell bg-gray-200 text-black px-4 py-2 text-sm">0.00000000 BTP</div>
-                                    </div>
-                                                                    <div class=" table-row">
-                                        <div class="table-cell  text-black px-4 py-2 text-sm">22 Uhr - 23 Uhr</div>
-                                        <div class="table-cell  text-black px-4 py-2 text-sm">0.00000000 BTP</div>
-                                    </div>
-                                                                    <div class=" table-row">
-                                        <div class="table-cell bg-gray-200 text-black px-4 py-2 text-sm">23 Uhr - 24 Uhr</div>
-                                        <div class="table-cell bg-gray-200 text-black px-4 py-2 text-sm">0.00000000 BTP</div>
-                                    </div>
-                                                                                    </div>
+        <div class="modal fade" id="report-site-modal" tabindex="-1" aria-labelledby="report-site-modal-label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="report-site-modal-label">Report site</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Site url</label>
+                        <input id="report-site-url-input" class="form-control" type="text" readonly>
                     </div>
-
-                                    </div>
-
-            </div>
-        </div>
-    </div>
-</div>
-
-        <!-- Success notification -->
-        <div id="notification_success" class="absolute right-0 top-0 m-5" style="visibility: hidden">
-            <div class="flex items-center bg-green-500 border-l-4 border-green-700 py-2 px-3 shadow-md mb-2">
-                <div class="text-green-500 rounded-full bg-white mr-3">
-                    <svg width="1.8em" height="1.8em" viewBox="0 0 16 16" class="bi bi-check" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" d="M10.97 4.97a.75.75 0 0 1 1.071 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.236.236 0 0 1 .02-.022z"/>
-                    </svg>
+                    <div class="form-group">
+                        <label>Reason</label>
+                        <input id="report-site-reason-input" class="form-control" type="text">
+                    </div>
                 </div>
-                <div class="text-white max-w-xs ">
-                    Ref-Link kopiert
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" data-toggle="report-site-modal-submit">Report</button>
                 </div>
             </div>
         </div>
-    <!--Footer-->
-    <footer class="bg-white border-t">
-        <div class="container mx-auto px-8">
-            <div class="w-full flex flex-col md:flex-row py-6">
-                <div class="flex-1 mb-6 text-black">
-                    <a class="text-pink-600 no-underline hover:no-underline font-bold text-2xl lg:text-4xl" href="#">
-                        <!--Icon from: http://www.potlabicons.com/ -->
-                        <svg class="h-16 fill-current inline" version="1.0" xmlns="http://www.w3.org/2000/svg"
-                             viewBox="0 0 500.000000 500.000000" height="100pt" width="100pt">
-
-                            <g transform="translate(0.000000,500.000000) scale(0.100000,-0.100000)"
-                               fill="#000000" stroke="none">
-                                <path d="M2433 4840 c-137 -28 -239 -144 -251 -286 -8 -108 40 -219 118 -270
-                                    29 -19 54 -34 57 -34 3 0 20 -7 39 -16 l34 -16 0 -303 c0 -295 -1 -302 -21
-                                    -321 -28 -25 -42 -61 -40 -105 2 -42 -4 -48 -96 -96 -37 -20 -79 -44 -92 -54
-                                    -13 -11 -28 -19 -33 -19 -5 0 -33 -15 -61 -34 -29 -18 -78 -48 -111 -67 -32
-                                    -19 -75 -44 -95 -56 -20 -12 -55 -32 -79 -44 -23 -12 -45 -25 -48 -30 -8 -14
-                                    -38 -11 -75 8 -21 10 -53 16 -82 15 -49 -2 -69 7 -215 95 -21 12 -53 30 -72
-                                    40 -19 10 -61 35 -92 55 -31 21 -60 38 -63 38 -3 0 -11 5 -18 10 -7 6 -32 21
-                                    -57 33 l-45 22 0 80 c0 114 -21 167 -98 246 -34 35 -69 65 -77 66 -8 1 -33 7
-                                    -55 12 -125 32 -279 -16 -331 -104 -10 -16 -21 -32 -24 -35 -14 -10 -50 -135
-                                    -50 -172 0 -93 70 -207 161 -260 60 -36 68 -38 151 -38 96 0 156 17 199 56 14
-                                    13 31 24 38 24 8 0 84 -41 170 -92 86 -50 202 -118 259 -151 77 -45 106 -68
-                                    118 -92 8 -18 35 -47 60 -64 l44 -32 -2 -372 -3 -371 -22 -12 c-38 -18 -62
-                                    -45 -75 -81 -10 -28 -29 -45 -98 -86 -128 -76 -289 -167 -342 -194 -26 -13
-                                    -50 -28 -53 -33 -3 -5 -13 -6 -22 -3 -11 4 -14 3 -9 -5 14 -24 -31 -12 -61 16
-                                    -42 36 -104 52 -211 52 -85 0 -90 -1 -148 -39 -87 -57 -154 -170 -154 -263 0
-                                    -37 35 -155 50 -168 3 -3 20 -23 37 -45 80 -103 292 -135 399 -60 107 76 157
-                                    174 148 292 l-5 69 53 29 c29 16 67 38 83 51 17 12 55 35 85 51 63 33 182 102
-                                    253 146 36 22 60 30 90 29 23 -1 63 5 88 14 40 15 50 15 78 3 17 -8 31 -17 31
-                                    -21 0 -5 5 -8 12 -8 6 0 26 -11 44 -25 18 -14 39 -25 47 -25 8 0 25 -8 38 -18
-                                    28 -21 141 -90 182 -111 15 -8 27 -18 27 -23 0 -5 4 -7 8 -4 4 2 26 -6 47 -19
-                                    22 -13 67 -38 100 -56 33 -17 63 -37 67 -43 4 -6 7 -32 6 -58 -1 -42 3 -51 31
-                                    -75 l31 -28 -2 -305 -3 -305 -41 -21 c-80 -40 -113 -66 -147 -112 -105 -146
-                                    -55 -367 103 -455 58 -32 90 -39 173 -38 76 1 150 29 204 80 85 80 117 228 73
-                                    344 -29 76 -89 141 -162 174 l-57 25 -1 305 0 305 34 43 c33 40 34 44 23 75
-                                    -11 30 -10 33 17 55 16 13 52 35 81 49 28 13 74 40 103 60 29 19 68 40 87 47
-                                    19 7 35 16 35 19 0 10 53 34 69 31 7 -1 11 2 8 6 -3 5 11 18 31 29 20 10 72
-                                    40 114 66 43 27 84 48 92 48 8 0 34 -8 58 -18 29 -13 52 -16 71 -11 24 6 56
-                                    -9 229 -107 111 -63 215 -125 232 -138 17 -13 42 -27 56 -31 46 -14 50 -23 50
-                                    -115 0 -96 12 -129 80 -215 63 -80 187 -119 299 -95 193 41 306 253 224 420
-                                    -15 30 -27 59 -27 65 -1 13 -80 87 -99 93 -4 1 -24 9 -45 18 -93 42 -222 26
-                                    -303 -38 -46 -35 -59 -35 -112 -1 -23 15 -58 35 -77 44 -19 9 -41 23 -49 32
-                                    -7 10 -20 17 -28 17 -8 0 -34 14 -58 30 -24 17 -48 30 -53 30 -4 0 -19 11 -32
-                                    25 -12 13 -26 22 -30 20 -4 -2 -35 13 -70 33 -49 28 -69 48 -87 82 -30 56 -67
-                                    92 -87 84 -14 -6 -16 33 -16 364 0 402 -1 394 55 408 13 3 26 13 29 22 27 70
-                                    55 99 138 142 60 31 154 85 285 164 155 92 145 88 168 67 11 -10 44 -31 73
-                                    -46 45 -22 67 -26 137 -26 76 -1 90 3 144 31 33 18 73 49 88 69 15 20 30 38
-                                    33 41 3 3 16 28 28 57 67 157 -25 348 -194 405 -151 52 -314 -15 -384 -157
-                                    -21 -42 -25 -64 -25 -142 l0 -92 -50 -27 c-27 -15 -52 -30 -55 -34 -3 -3 -48
-                                    -30 -100 -60 -52 -29 -111 -63 -130 -75 -20 -13 -58 -35 -85 -49 -28 -15 -64
-                                    -35 -82 -46 -26 -15 -37 -17 -65 -8 -29 9 -41 7 -77 -12 -51 -26 -68 -23 -139
-                                    25 -30 19 -55 35 -58 35 -2 0 -58 32 -125 70 -66 39 -123 70 -126 70 -9 0 -77
-                                    50 -68 50 6 1 -10 8 -34 16 -24 9 -56 24 -70 34 -14 9 -38 25 -53 34 -24 14
-                                    -27 21 -24 56 3 24 0 40 -7 40 -6 0 -7 3 -4 7 4 3 -4 21 -18 39 l-25 33 0 305
-                                    1 305 54 25 c64 31 126 92 157 155 19 37 23 63 23 136 0 79 -3 96 -28 143 -36
-                                    68 -77 106 -154 143 -65 30 -109 35 -190 19z m81 -1807 c3 -4 13 -8 21 -9 7
-                                    -1 29 -13 47 -27 30 -22 154 -94 299 -174 106 -58 98 -31 99 -336 1 -151 -3
-                                    -274 -8 -284 -10 -17 -22 -25 -182 -116 -52 -30 -135 -77 -185 -105 -49 -29
-                                    -97 -52 -106 -52 -19 0 -145 64 -174 89 -11 10 -46 29 -77 44 -32 15 -58 31
-                                    -58 36 0 5 -12 12 -27 16 -14 3 -38 15 -51 26 -14 10 -30 19 -37 19 -7 0 -24
-                                    12 -39 26 l-26 27 0 269 0 269 26 24 c15 14 31 25 36 25 6 0 22 8 36 19 15 10
-                                    38 22 51 26 14 4 32 15 42 24 10 9 39 27 66 41 26 14 55 30 63 36 25 20 161
-                                    94 171 94 3 0 9 -3 13 -7z"/>
-                            </g>
-                        </svg>
-                        Coinsurfer
-                    </a>
-                </div>
-                <div class="flex-1">
-                    <p class="uppercase text-gray-500 md:mb-6">Legal</p>
-                    <ul class="list-reset mb-6">
-                        <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                            <a href="/agb" class="no-underline hover:underline text-gray-800 hover:text-pink-500">Nutzungsbedingungen</a>
-                        </li>
-                        <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                            <a href="/datenschutz" class="no-underline hover:underline text-gray-800 hover:text-pink-500">Datenschutzerklärung</a>
-                        </li>
-                        <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                            <a href="/impressum" class="no-underline hover:underline text-gray-800 hover:text-pink-500">Impressum</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="flex-1">
-                    <p class="uppercase text-gray-500 md:mb-6">Hilfe</p>
-                    <ul class="list-reset mb-6">
-                        <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                            <a href="/faq" class="no-underline hover:underline text-gray-800 hover:text-pink-500">FAQ</a>
-                        </li>
-                    </ul>
-                </div>
-                                <div class="flex-1">
-                    <p class="uppercase text-gray-500 md:mb-6">Nutzer</p>
-                    <ul class="list-reset mb-6">
-                        <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                            <a href="/klickanzeigen" class="no-underline hover:underline text-gray-800 hover:text-pink-500">Klickanzeigen</a>
-                        </li>
-                        <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                            <a href="/user/surfoptions" class="no-underline hover:underline text-gray-800 hover:text-pink-500">Surfoptions</a>
-                        </li>
-                    </ul>
-                </div>
-                                            </div>
-        </div>
-    </footer>
     </div>
+                                        <script>
+            var statistics_ajax_url = '/statistics-ajax';
+            var country_statistics_ajax_url = '/country-statistics-ajax';
+                        var assign_unused_points_to_all_sites_url = '/account/assign-unused-points-to-all-sites';
+            var reclaim_points_of_all_sites_url = '/account/reclaim-points-of-all-sites';
+            var set_automatic_distribution_url = '/account/set-automatic-distribution';
+            var set_automatic_renewal_url = '/account/set-automatic-renewal';
+            var active_viewers_ajax_url = '/account/active-viewers-ajax';
+                        
+            var package_images = {
+                silver: "/build/images/silver.795a8c21.png",
+                gold: "/build/images/gold.9edaf7ec.png",
+                platinum: "/build/images/platinum.3186bd0a.png",
+            };
+        </script>
+        
 
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-        google.charts.load('current', {packages:['corechart']});google.charts.setOnLoadCallback(drawChart9b871953c48abc2037619c466eebb6aa); function drawChart9b871953c48abc2037619c466eebb6aa() {var chartChart_div = new google.visualization.LineChart(document.getElementById("chart_div"));var dataChartChart_div = new google.visualization.arrayToDataTable([["Datum", "Wert"], ["04\/23\/2021", 67.18], ["04\/27\/2021", 24.02], ["04\/28\/2021", 8603.51], ["04\/29\/2021", 115985.5], ["04\/30\/2021", 559.17], ["05\/01\/2021", 317.13], ["05\/02\/2021", 116.16], ["05\/03\/2021", 152.52], ["05\/04\/2021", 10.48], ["06\/25\/2021", 24.05]], false);var optionsChartChart_div = {"legend":{"position":"none"}, "height":250, "title":"Verdienst", "lineWidth":4, "curveType":"function"};
-chartChart_div.draw(dataChartChart_div, optionsChartChart_div);}
+        <script>
+        var viewer_finish_url = '/viewer/557e86b6-60f8-435b-b83c-516246a389fb/finish';
+        var viewer_target_url = '/viewer/557e86b6-60f8-435b-b83c-516246a389fb/target';
+        var viewer_ping_url = 'https://webhit.net/viewer/557e86b6-60f8-435b-b83c-516246a389fb/ping';
+        var viewer_stop_url = '/viewer/557e86b6-60f8-435b-b83c-516246a389fb/stop';
+        var viewer_version_url = '/viewer/version';
+        var visit_complete_url = '/visit/__uuid__/complete';
+        var report_site_url = '/account/report-site';
     </script>
-    <script>
-        window.onload = function() {
-            toggleTable();
-        };
+                            <script src="/build/runtime.0c796a0d.js" integrity="sha384-/Zh0hTCgqMfXwZfeMIiueZzsKiHkvtqEOzKpZAuznIbgqg1DQpUQAwwNlO/9ToVH"></script><script src="/build/0.ea90ce85.js" integrity="sha384-B1Klkq46ffKdLIwKe0Ng0Y50DVz1uT4BSNUKfHLqgiPv9AAiQ5HK+LNke1n33+iu"></script><script src="/build/2.9a629cdd.js" integrity="sha384-yQecbAwzpKhzz9gbFiZqu9psKd5+ZL51ND2jYTS279IpLE8YwSGDKQXXYlGdCODV"></script><script src="/build/app.86602992.js" integrity="sha384-4dJfwRKu6yxBASrq7bHH6zCntCIY4hkQQg5fvFQI8nnZcKGXBh8mQAvcDryK0qY6"></script>
 
-        function toggleTable()
-        {
-            if (document.getElementById('toggletable').checked)
-            {
-                document.getElementById("daily").style.display = "none";
-                document.getElementById("hourly").style.display = "table";
-            } else {
-                document.getElementById("daily").style.display = "table";
-                document.getElementById("hourly").style.display = "none";
+                            <script src="/build/user.60c2be79.js" integrity="sha384-XxQjN4hG2AiGQ2pg/CorweO16tuCY8wEDI2xLxQvIIIfaFsrbkhYG0tsIicE8fbP"></script>
+            
+            
+                    
 
-            }
-        }
-        var refreshButton = document.getElementById('pending-btn')
-        refreshButton.addEventListener('click', function(event){
-            let points = 0;
-            let debug = 0;
-            document.getElementById('pending').innerHTML = points;
-        }, false);
+            <script>
+            var currentVisitId = null;
+                var nextVisitAt = null;
+                    </script>
 
-    </script>
-    <script>
-        const menu = document.getElementById('menu');
-        const toggle = () => menu.classList.toggle("hidden");
-    </script>
-
-    <script src="https://widgets.coingecko.com/coingecko-coin-price-marquee-widget.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
-    <!-- Matomo -->
-    <script type="text/javascript">
-        var _paq = window._paq = window._paq || [];
-        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-        _paq.push(['trackPageView']);
-        _paq.push(['enableLinkTracking']);
-        (function() {
-            var u="//analytics.wlanwerner.de/";
-            _paq.push(['setTrackerUrl', u+'matomo.php']);
-            _paq.push(['setSiteId', '1']);
-            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-            g.type='text/javascript'; g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
-        })();
-    </script>
-    <!-- End Matomo Code -->
-
-
-    </body>
+        <script src="/build/viewer.6a746a2e.js" integrity="sha384-H+NBuSAx/cegxvuxIV7B68rl+jHbb1Jy0nG4pJUYyw/SYub7KWjZ8w3r68+r9bAI"></script>
+        </body>
 </html>
